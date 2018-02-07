@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+ {% block scriptblock %}
+<!--, '_blank'-->
+<!--window.open('http://127.0.0.1:8000/apple?f='+ $('#abc').val());-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+</script>
+    <script type ="text/javascript">
+        $(document).ready(function()
+        {
+
+            $('#countries').change(function()
+
+            {
+              console.log("Hello");
+
+              $('#abc').val();
+              window.open('http://127.0.0.1:8000/apple?f='+$('#countries').val());
+
+
+
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block indexdata %}
+{{ country_name }}
+<select name="Countries" id = 'countries'>
+          {% for c in countries %}
+                <option value={{c.countries_name}}>{{c.countries_name}}</option>
+          {% endfor %}
+      </select>
+      <select name="States" id = 'abc'>
+            {% for s in states %}
+                <option value={{s.state_name }}>{{s.state_name}}</option>
+            {% endfor %}
+
+       </select>
+      <br><br>
+      <input type="submit">
+
+{% endblock %}
+

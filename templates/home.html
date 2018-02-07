@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block homedata %}
+    {% for c in countries %}
+        {% for s in states %}
+        <tr>
+            <th>{{c.countries_name}}</th>
+            <th>{{s.state_name}}</th>
+        </tr>
+        {% endfor %}
+    {% endfor %}
+
+{% endblock %}
